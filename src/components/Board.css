@@ -2,7 +2,8 @@
   display: grid;
   gap: 8px;
   padding: 12px;
-  width: 100%;
+  flex: 1;           /* fill remaining width beside the leaderboard */
+  min-width: 0;
   height: 100%;
   box-sizing: border-box;
 }

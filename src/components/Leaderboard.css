@@ -1,0 +1,93 @@
+.leaderboard {
+  width: 210px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(180deg, #0d1b2e 0%, #0a0a0f 100%);
+  border-left: 2px solid #8b6914;
+  padding: 14px 12px;
+  overflow-y: auto;
+}
+
+.leaderboard-title {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 1.05rem;
+  color: #d4a843;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+  text-shadow: 0 0 10px rgba(212, 168, 67, 0.4);
+  flex-shrink: 0;
+}
+
+.leaderboard-empty {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 0.85rem;
+  color: rgba(200, 184, 122, 0.5);
+  text-align: center;
+  padding-top: 12px;
+  font-style: italic;
+}
+
+.leaderboard-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.leaderboard-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 168, 67, 0.12);
+  transition: background 0.2s;
+}
+
+.leaderboard-entry.rank-1 {
+  background: rgba(255, 215, 0, 0.10);
+  border-color: rgba(255, 215, 0, 0.35);
+}
+
+.leaderboard-entry.rank-2 {
+  background: rgba(192, 192, 192, 0.08);
+  border-color: rgba(192, 192, 192, 0.25);
+}
+
+.leaderboard-entry.rank-3 {
+  background: rgba(205, 127, 50, 0.08);
+  border-color: rgba(205, 127, 50, 0.25);
+}
+
+.leaderboard-medal {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+}
+
+.leaderboard-name {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 0.9rem;
+  color: #f0e6c8;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard-score {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #d4a843;
+  flex-shrink: 0;
+}
+

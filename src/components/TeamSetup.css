@@ -1,0 +1,177 @@
+.team-setup-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 24px;
+  animation: tsBackdropIn 0.15s ease;
+}
+
+@keyframes tsBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.team-setup-dialog {
+  background: linear-gradient(160deg, #0d1b2e 0%, #152744 60%, #1a0d00 100%);
+  border: 2px solid #8b6914;
+  border-radius: 12px;
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.9);
+  animation: tsSlideUp 0.2s ease;
+}
+
+@keyframes tsSlideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.team-setup-title {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 1.5rem;
+  color: #d4a843;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 12px rgba(212, 168, 67, 0.4);
+}
+
+.team-setup-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.team-setup-input {
+  flex: 1;
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(212, 168, 67, 0.4);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #f0e6c8;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.team-setup-input::placeholder { color: rgba(200,184,122,0.4); }
+.team-setup-input:focus { border-color: #d4a843; }
+
+.team-setup-add-btn {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #1a3a10, #2e6b1a);
+  color: #a8e07a;
+  border: 2px solid #4a8a2a;
+  border-radius: 6px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.team-setup-add-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2e6b1a, #3e9a22);
+  transform: scale(1.04);
+}
+
+.team-setup-add-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.team-setup-empty {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 0.9rem;
+  color: rgba(200,184,122,0.55);
+  text-align: center;
+  font-style: italic;
+}
+
+.team-setup-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.team-setup-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212, 168, 67, 0.15);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+.team-setup-item-name {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 1rem;
+  color: #f0e6c8;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-setup-item-score {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 0.85rem;
+  color: #d4a843;
+  flex-shrink: 0;
+}
+
+.team-setup-remove-btn {
+  background: none;
+  border: none;
+  color: rgba(200, 80, 60, 0.7);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.team-setup-remove-btn:hover {
+  color: #ff6050;
+  background: rgba(200,80,60,0.15);
+}
+
+.team-setup-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.team-setup-close-btn {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0d2b5e, #1a4a9e);
+  color: #d4a843;
+  border: 2px solid #8b6914;
+  border-radius: 6px;
+  padding: 10px 36px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.team-setup-close-btn:hover {
+  background: linear-gradient(135deg, #1a4a9e, #2a6adf);
+  transform: scale(1.04);
+}
+

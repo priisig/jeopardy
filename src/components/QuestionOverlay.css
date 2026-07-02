@@ -248,3 +248,56 @@
   letter-spacing: 0.05em;
 }
 
+/* ── Team picker ─────────────────────────────────────── */
+.team-picker-title {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: #f0e6c8;
+  text-align: center;
+}
+
+.team-picker-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+
+.team-picker-btn {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: bold;
+  background: linear-gradient(135deg, #0d2b5e, #1a4a9e);
+  color: #d4a843;
+  border: 2px solid #8b6914;
+  border-radius: 8px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  min-width: 140px;
+}
+
+.team-picker-btn:hover {
+  background: linear-gradient(135deg, #1a4a9e, #2a6adf);
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(212, 168, 67, 0.25);
+}
+
+.team-picker-btn:active {
+  transform: scale(0.97);
+}
+
+.btn-no-points {
+  background: rgba(255,255,255,0.05);
+  color: rgba(200,184,122,0.6);
+  border-color: rgba(200,184,122,0.25);
+  font-size: 0.9rem;
+}
+
+.btn-no-points:hover {
+  background: rgba(255,255,255,0.09);
+  transform: scale(1.03);
+}
+

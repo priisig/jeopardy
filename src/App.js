@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import questionsData from './questions.json';
 import Board from './components/Board';
 import QuestionOverlay from './components/QuestionOverlay';
+import Leaderboard from './components/Leaderboard';
+import TeamSetup from './components/TeamSetup';
 import { useCompletedQuestions } from './hooks/useCompletedQuestions';
+import { useTeams } from './hooks/useTeams';
 import './App.css';
 
 function App() {
   const { categories } = questionsData;
   const { completedQuestions, markCompleted, resetGame } = useCompletedQuestions();
+  const { teams, addTeam, removeTeam, addPoints, resetScores } = useTeams();
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [showTeamSetup, setShowTeamSetup] = useState(false);
 
   function handleSelectQuestion(question) {
     setSelectedQuestion(question);
@@ -19,12 +24,22 @@ function App() {
     setSelectedQuestion(null);
   }
 
+  // Called from QuestionOverlay after team is chosen (teamId may be null = no points)
+  function handleMarkCompleted(questionId, teamId) {
+    markCompleted(questionId);
+    if (teamId != null) {
+      addPoints(teamId, selectedQuestion.points);
+    }
+    setSelectedQuestion(null);
+  }
+
   function handleResetRequest() {
     setShowResetConfirm(true);
   }
 
   function handleConfirmReset() {
     resetGame();
+    resetScores();
     setShowResetConfirm(false);
   }
 
@@ -46,6 +61,9 @@ function App() {
           <span className="app-score">
             {completedCount} / {totalQuestions} Fragen beantwortet
           </span>
+          <button className="teams-btn" onClick={() => setShowTeamSetup(true)}>
+            ⚔ Teams
+          </button>
           <button className="reset-btn" onClick={handleResetRequest}>
             Spiel zurücksetzen
           </button>
@@ -58,14 +76,25 @@ function App() {
           completedQuestions={completedQuestions}
           onSelectQuestion={handleSelectQuestion}
         />
+        <Leaderboard teams={teams} />
       </main>
 
       {selectedQuestion && (
         <QuestionOverlay
           question={selectedQuestion}
+          teams={teams}
           isCompleted={completedQuestions.has(selectedQuestion.id)}
           onClose={handleCloseOverlay}
-          onMarkCompleted={markCompleted}
+          onMarkCompleted={handleMarkCompleted}
+        />
+      )}
+
+      {showTeamSetup && (
+        <TeamSetup
+          teams={teams}
+          onAddTeam={addTeam}
+          onRemoveTeam={removeTeam}
+          onClose={() => setShowTeamSetup(false)}
         />
       )}
 
@@ -74,7 +103,7 @@ function App() {
           <div className="confirm-dialog" onClick={(e) => e.stopPropagation()}>
             <h3 className="confirm-title">Spiel zurücksetzen?</h3>
             <p className="confirm-text">
-              Alle beantworteten Fragen werden zurückgesetzt. Diese Aktion kann nicht rückgängig gemacht werden.
+              Alle beantworteten Fragen und Punktestände werden zurückgesetzt. Diese Aktion kann nicht rückgängig gemacht werden.
             </p>
             <div className="confirm-actions">
               <button className="confirm-btn btn-confirm-yes" onClick={handleConfirmReset}>

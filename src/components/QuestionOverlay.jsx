@@ -8,74 +8,113 @@ function extractYouTubeId(url) {
   return match ? match[1] : null;
 }
 
-function QuestionOverlay({ question, onClose, onMarkCompleted, isCompleted }) {
+// step: 'question' | 'teamPicker'
+function QuestionOverlay({ question, teams, onClose, onMarkCompleted, isCompleted }) {
   const [answerVisible, setAnswerVisible] = useState(false);
+  const [step, setStep] = useState('question');
 
   const hasAnswer  = question.answer != null && question.answer !== '';
   const videoId    = extractYouTubeId(question.youtubeUrl);
   const hasYouTube = videoId != null;
+  const hasTeams   = teams && teams.length > 0;
 
-  function handleMarkCompleted() {
-    onMarkCompleted(question.id);
-    onClose();
+  function handleDoneClick() {
+    if (hasTeams) {
+      setStep('teamPicker');
+    } else {
+      onMarkCompleted(question.id, null);
+    }
+  }
+
+  function handleTeamPick(teamId) {
+    onMarkCompleted(question.id, teamId);
   }
 
   return (
     <div className="overlay-backdrop" onClick={onClose}>
       <div className="overlay-card" onClick={(e) => e.stopPropagation()}>
-        <div className="overlay-points">{question.points} Punkte</div>
 
-        <div className="overlay-question">{question.question}</div>
-
-        {/* YouTube audio player — no video visible */}
-        {hasYouTube && (
-          <div className="youtube-player-section">
-            <YouTubeAudioPlayer
-              videoId={videoId}
-              startTime={question.startTime}
-              endTime={question.endTime}
-            />
-          </div>
-        )}
-
-        {/* Answer / moderator hint */}
-        {hasAnswer ? (
-          !answerVisible ? (
-            <button
-              className="overlay-btn btn-reveal"
-              onClick={() => setAnswerVisible(true)}
-            >
-              Antwort anzeigen
-            </button>
-          ) : (
-            <div className="overlay-answer">
-              <div className="overlay-answer-label">Antwort:</div>
-              <div className="overlay-answer-text">{question.answer}</div>
+        {step === 'teamPicker' ? (
+          /* ── Team picker ── */
+          <>
+            <div className="overlay-points">{question.points} Punkte</div>
+            <div className="team-picker-title">Welches Team bekommt die Punkte?</div>
+            <div className="team-picker-grid">
+              {teams.map((team) => (
+                <button
+                  key={team.id}
+                  className="team-picker-btn"
+                  onClick={() => handleTeamPick(team.id)}
+                >
+                  {team.name}
+                </button>
+              ))}
             </div>
-          )
-        ) : (
-          <div className="overlay-moderator-hint">
-            🧙 Frag den Moderator nach den Details!
-            {question.moderator && (
-              <span className="overlay-moderator-name"> ({question.moderator})</span>
-            )}
-          </div>
-        )}
-
-        <div className="overlay-actions">
-          {!isCompleted && (
-            <button className="overlay-btn btn-done" onClick={handleMarkCompleted}>
-              ✔ Frage beantwortet
+            <button className="overlay-btn btn-no-points" onClick={() => handleTeamPick(null)}>
+              Kein Punkt vergeben
             </button>
-          )}
-          <button className="overlay-btn btn-close" onClick={onClose}>
-            Schließen
-          </button>
-        </div>
+            <button className="overlay-btn btn-close" onClick={() => setStep('question')}>
+              ← Zurück
+            </button>
+          </>
+        ) : (
+          /* ── Question view ── */
+          <>
+            <div className="overlay-points">{question.points} Punkte</div>
+
+            <div className="overlay-question">{question.question}</div>
+
+            {hasYouTube && (
+              <div className="youtube-player-section">
+                <YouTubeAudioPlayer
+                  videoId={videoId}
+                  startTime={question.startTime}
+                  endTime={question.endTime}
+                />
+                {(question.startTime != null || question.endTime != null) && (
+                  <div className="youtube-timecode">
+                    {question.startTime != null && <span>⏱ Start: {question.startTime}s</span>}
+                    {question.endTime   != null && <span> – Ende: {question.endTime}s</span>}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {hasAnswer ? (
+              !answerVisible ? (
+                <button className="overlay-btn btn-reveal" onClick={() => setAnswerVisible(true)}>
+                  Antwort anzeigen
+                </button>
+              ) : (
+                <div className="overlay-answer">
+                  <div className="overlay-answer-label">Antwort:</div>
+                  <div className="overlay-answer-text">{question.answer}</div>
+                </div>
+              )
+            ) : (
+              <div className="overlay-moderator-hint">
+                🧙 Frag den Moderator nach den Details!
+                {question.moderator && (
+                  <span className="overlay-moderator-name"> ({question.moderator})</span>
+                )}
+              </div>
+            )}
+
+            <div className="overlay-actions">
+              {!isCompleted && (
+                <button className="overlay-btn btn-done" onClick={handleDoneClick}>
+                  ✔ Frage beantwortet
+                </button>
+              )}
+              <button className="overlay-btn btn-close" onClick={onClose}>
+                Schließen
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
 export default QuestionOverlay;
-
