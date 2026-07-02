@@ -163,3 +163,88 @@
   font-style: italic;
 }
 
+/* ── YouTube audio player ─────────────────────────────── */
+.youtube-player-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.youtube-audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.youtube-loading {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  color: rgba(212, 168, 67, 0.6);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.youtube-playing-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Animated sound bars shown while playing */
+.youtube-playing-indicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 32px;
+}
+
+.sound-bar {
+  display: block;
+  width: 8px;
+  background: #d4a843;
+  border-radius: 3px;
+  animation: soundBounce 0.8s ease-in-out infinite alternate;
+}
+
+.sound-bar:nth-child(1) { height: 14px; animation-delay: 0s;    }
+.sound-bar:nth-child(2) { height: 28px; animation-delay: 0.2s;  }
+.sound-bar:nth-child(3) { height: 18px; animation-delay: 0.4s;  }
+
+@keyframes soundBounce {
+  from { transform: scaleY(0.4); opacity: 0.6; }
+  to   { transform: scaleY(1.0); opacity: 1;   }
+}
+
+.btn-play-audio {
+  background: linear-gradient(135deg, #1a0d2e, #3a1060);
+  color: #d4a843;
+  border-color: #6a3090;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+.btn-play-audio:hover {
+  background: linear-gradient(135deg, #3a1060, #5a20a0);
+}
+
+.btn-stop-audio {
+  background: linear-gradient(135deg, #2a0a00, #5a1a00);
+  color: #d4a843;
+  border-color: #8b2000;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+.btn-stop-audio:hover {
+  background: linear-gradient(135deg, #5a1a00, #8b2800);
+}
+
+.youtube-timecode {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: 0.85rem;
+  color: rgba(212, 168, 67, 0.6);
+  letter-spacing: 0.05em;
+}
+
