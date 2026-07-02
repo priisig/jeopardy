@@ -34,7 +34,7 @@ function Board({ categories, completedQuestions, onSelectQuestion }) {
             <button
               key={question.id}
               className={`board-tile ${isCompleted ? 'completed' : 'active'}`}
-              onClick={() => !isCompleted && onSelectQuestion(question)}
+              onClick={() => !isCompleted && onSelectQuestion({ ...question, moderator: category.moderator })}
               disabled={isCompleted}
               aria-label={`${category.name} für ${points} Punkte${isCompleted ? ' – bereits beantwortet' : ''}`}
             >

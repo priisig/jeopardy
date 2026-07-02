@@ -3,6 +3,7 @@ import './QuestionOverlay.css';
 
 function QuestionOverlay({ question, onClose, onMarkCompleted, isCompleted }) {
   const [answerVisible, setAnswerVisible] = useState(false);
+  const hasAnswer = question.answer != null && question.answer !== '';
 
   function handleMarkCompleted() {
     onMarkCompleted(question.id);
@@ -16,17 +17,26 @@ function QuestionOverlay({ question, onClose, onMarkCompleted, isCompleted }) {
 
         <div className="overlay-question">{question.question}</div>
 
-        {!answerVisible ? (
-          <button
-            className="overlay-btn btn-reveal"
-            onClick={() => setAnswerVisible(true)}
-          >
-            Antwort anzeigen
-          </button>
+        {hasAnswer ? (
+          !answerVisible ? (
+            <button
+              className="overlay-btn btn-reveal"
+              onClick={() => setAnswerVisible(true)}
+            >
+              Antwort anzeigen
+            </button>
+          ) : (
+            <div className="overlay-answer">
+              <div className="overlay-answer-label">Antwort:</div>
+              <div className="overlay-answer-text">{question.answer}</div>
+            </div>
+          )
         ) : (
-          <div className="overlay-answer">
-            <div className="overlay-answer-label">Antwort:</div>
-            <div className="overlay-answer-text">{question.answer}</div>
+          <div className="overlay-moderator-hint">
+            🧙 Frag den Moderator nach den Details!
+            {question.moderator && (
+              <span className="overlay-moderator-name"> ({question.moderator})</span>
+            )}
           </div>
         )}
 

@@ -144,3 +144,22 @@
   background: linear-gradient(135deg, #5a1a00, #8b2800);
 }
 
+.overlay-moderator-hint {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+  color: #d4a843;
+  text-align: center;
+  background: rgba(212, 168, 67, 0.08);
+  border: 1px solid rgba(212, 168, 67, 0.35);
+  border-radius: 8px;
+  padding: 20px 28px;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+}
+
+.overlay-moderator-name {
+  color: #a8c8f0;
+  font-style: italic;
+}
+

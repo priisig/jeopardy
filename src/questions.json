@@ -1,182 +1,115 @@
 {
   "categories": [
     {
-      "id": "auenland",
-      "name": "Das Auenland",
+      "id": "quizfragen",
+      "name": "Quizfragen",
+      "moderator": "Micha W.",
       "questions": [
         {
-          "id": "auenland-100",
-          "points": 100,
-          "question": "In welchem Ort im Auenland wohnt Bilbo Beutlin?",
-          "answer": "Beutelsend (Bag End) in Hobbingen (Hobbiton)"
+          "id": "quizfragen-20",
+          "points": 20,
+          "question": "Wie heißt der Hobbit, der den Einen Ring am Schicksalsberg vernichtet?",
+          "answer": "Frodo Beutlin"
         },
         {
-          "id": "auenland-200",
-          "points": 200,
-          "question": "Wie alt wird Bilbo Beutlin am Beginn der Gefährten des Rings?",
-          "answer": "111 Jahre alt"
+          "id": "quizfragen-40",
+          "points": 40,
+          "question": "Welchen Satz spricht Gandalf, als er auf der Brücke von Khazad-dûm dem Balrog entgegentritt?",
+          "answer": "Du sollst nicht passieren! (You shall not pass!)"
         },
         {
-          "id": "auenland-300",
-          "points": 300,
-          "question": "Wie heißen die vier Gaue, in die das Auenland aufgeteilt ist?",
-          "answer": "Westgau, Ostgau, Nordgau und Südgau"
-        },
-        {
-          "id": "auenland-400",
-          "points": 400,
-          "question": "Welches Kraut bauen Hobbits im Auenland an, das auch als Pfeifenkraut bekannt ist?",
-          "answer": "Longbottom Leaf / Südlicher Stern (Pfeifenkraut / Old Toby)"
-        },
-        {
-          "id": "auenland-500",
-          "points": 500,
-          "question": "Welche zwei Hobbits gründeten offiziell das Auenland und in welchem Jahr des Auenlandkalenders?",
-          "answer": "Marcho und Blanco, im Jahr 1601 des Auenlandkalenders"
+          "id": "quizfragen-60",
+          "points": 60,
+          "question": "Wie lautet die Inschrift des Einen Rings auf Quenya, und was bedeutet sie auf Deutsch?",
+          "answer": "Ash nazg durbatulûk, ash nazg gimbatul, ash nazg thrakatulûk agh burzum-ishi krimpatul. – Ein Ring sie alle zu knechten, ein Ring sie zu finden, ein Ring sie alle zu bringen und im Dunkeln zu binden."
         }
       ]
     },
     {
-      "id": "mordor",
-      "name": "Mordor",
+      "id": "aktivitaet",
+      "name": "Aktivität",
+      "moderator": "Micha Z.",
       "questions": [
         {
-          "id": "mordor-100",
-          "points": 100,
-          "question": "Wie heißt der Vulkan in Mordor, in dem der Eine Ring geschmiedet wurde?",
-          "answer": "Schicksalsberg (Mount Doom / Orodruin)"
+          "id": "aktivitaet-20",
+          "points": 20,
+          "question": "Aktivität – leichte Schwierigkeit"
         },
         {
-          "id": "mordor-200",
-          "points": 200,
-          "question": "Wie heißt Saurons riesige Festung in Mordor?",
-          "answer": "Barad-dûr (Der Dunkle Turm)"
+          "id": "aktivitaet-40",
+          "points": 40,
+          "question": "Aktivität – mittlere Schwierigkeit"
         },
         {
-          "id": "mordor-300",
-          "points": 300,
-          "question": "Wie heißt das gigantische Tor, das den Eingang nach Mordor bewacht?",
-          "answer": "Das Schwarze Tor (Morannon)"
-        },
-        {
-          "id": "mordor-400",
-          "points": 400,
-          "question": "Welches riesige Spinnenwesen lebt in dem Gebirgspass Cirith Ungol und greift Frodo an?",
-          "answer": "Kankra (Shelob)"
-        },
-        {
-          "id": "mordor-500",
-          "points": 500,
-          "question": "Wie heißen die beiden Gebirgsketten, die Mordor von drei Seiten einschließen?",
-          "answer": "Ered Lithui (Aschenberge) im Norden und Ephel Dúath (Schattenberge) im Westen und Süden"
+          "id": "aktivitaet-60",
+          "points": 60,
+          "question": "Aktivität – schwere Schwierigkeit"
         }
       ]
     },
     {
-      "id": "gefaehrten",
-      "name": "Die Gefährten",
+      "id": "malen",
+      "name": "Malen",
+      "moderator": "Jan",
       "questions": [
         {
-          "id": "gefaehrten-100",
-          "points": 100,
-          "question": "Aus wie vielen Mitgliedern besteht die Gemeinschaft des Ringes?",
-          "answer": "Neun Mitglieder"
+          "id": "malen-20",
+          "points": 20,
+          "question": "Malen – leichte Schwierigkeit"
         },
         {
-          "id": "gefaehrten-200",
-          "points": 200,
-          "question": "Welcher Zwerg ist der Anführer der Gemeinschaft und Sohn des Gloín?",
-          "answer": "Gimli, Sohn des Gloín"
+          "id": "malen-40",
+          "points": 40,
+          "question": "Malen – mittlere Schwierigkeit"
         },
         {
-          "id": "gefaehrten-300",
-          "points": 300,
-          "question": "Wie heißt der Elb in der Gemeinschaft des Ringes, der aus dem Düsterwald stammt?",
-          "answer": "Legolas Grünblatt (Legolas Greenleaf)"
-        },
-        {
-          "id": "gefaehrten-400",
-          "points": 400,
-          "question": "Welchen Titel trägt Aragorn und wie lautet sein vollständiger Name als König?",
-          "answer": "König von Gondor und Arnor; Elessar Telcontar (Elfenstein)"
-        },
-        {
-          "id": "gefaehrten-500",
-          "points": 500,
-          "question": "In welcher Reihenfolge verlassen die Mitglieder der Gemeinschaft die Gemeinschaft (wer scheidet wann aus)?",
-          "answer": "Gandalf fällt in Moria; Boromir stirbt bei Amon Hen; Merry & Pippin werden entführt; Frodo & Sam gehen allein weiter; Aragorn, Legolas & Gimli folgen den Orks"
+          "id": "malen-60",
+          "points": 60,
+          "question": "Malen – schwere Schwierigkeit"
         }
       ]
     },
     {
-      "id": "waffen",
-      "name": "Waffen & Magie",
+      "id": "sketch",
+      "name": "Sketch erraten",
+      "moderator": "Levi & Calvin",
       "questions": [
         {
-          "id": "waffen-100",
-          "points": 100,
-          "question": "Wie heißt Frodos Schwert, das bei der Anwesenheit von Orks leuchtet?",
-          "answer": "Stich (Sting)"
+          "id": "sketch-20",
+          "points": 20,
+          "question": "Sketch erraten – leichte Schwierigkeit"
         },
         {
-          "id": "waffen-200",
-          "points": 200,
-          "question": "Wie heißt Gandalfs Schwert und aus welchem Material soll es bestehen?",
-          "answer": "Glamdring (Feindhammer), ein altes Elben-Schwert aus Gondolin"
+          "id": "sketch-40",
+          "points": 40,
+          "question": "Sketch erraten – mittlere Schwierigkeit"
         },
         {
-          "id": "waffen-300",
-          "points": 300,
-          "question": "Wie heißt das Schwert, das Aragorn als Erbschwert der Dúnedain trägt, und wie wurde es neu geschmiedet?",
-          "answer": "Andúril (Flamme des Westens), neu geschmiedet aus den Scherben von Narsil in Bruchtal"
-        },
-        {
-          "id": "waffen-400",
-          "points": 400,
-          "question": "Wie heißen die drei Elbenringe der Macht und wer trägt sie?",
-          "answer": "Narya (Gandalf), Nenya (Galadriel), Vilya (Elrond)"
-        },
-        {
-          "id": "waffen-500",
-          "points": 500,
-          "question": "Was ist der Unterschied zwischen Gandalfs Stab und dem Palantír, und welche Funktion hat der Palantír von Orthanc?",
-          "answer": "Der Stab ist ein Fokus für Gandalfs Magie; der Palantír ist ein Sehstein, der Fernsicht ermöglicht und durch den Sauron Saruman kontrollierte"
+          "id": "sketch-60",
+          "points": 60,
+          "question": "Sketch erraten – schwere Schwierigkeit"
         }
       ]
     },
     {
-      "id": "geographie",
-      "name": "Mittelerde",
+      "id": "geraeusche",
+      "name": "Geräusche",
+      "moderator": "Silas",
       "questions": [
         {
-          "id": "geographie-100",
-          "points": 100,
-          "question": "Wie heißt die Elbenstadt, in der Elrond lebt und wo die Gemeinschaft gebildet wird?",
-          "answer": "Bruchtal (Rivendell / Imladris)"
+          "id": "geraeusche-20",
+          "points": 20,
+          "question": "Geräusch erraten – leichte Schwierigkeit"
         },
         {
-          "id": "geographie-200",
-          "points": 200,
-          "question": "Wie heißt das goldene Elbenreich, das von Galadriel und Celeborn regiert wird?",
-          "answer": "Lothlórien (auch Lórien oder Laurelindórenan)"
+          "id": "geraeusche-40",
+          "points": 40,
+          "question": "Geräusch erraten – mittlere Schwierigkeit"
         },
         {
-          "id": "geographie-300",
-          "points": 300,
-          "question": "Wie heißt die alte Zwergenstadt unter dem Nebelgebirge, die die Gemeinschaft durchquert?",
-          "answer": "Moria (Khazad-dûm)"
-        },
-        {
-          "id": "geographie-400",
-          "points": 400,
-          "question": "Wie heißt die Hauptstadt von Gondor und auf welchem Berg liegt sie?",
-          "answer": "Minas Tirith (früher Minas Anor), auf dem Mindolluin"
-        },
-        {
-          "id": "geographie-500",
-          "points": 500,
-          "question": "Welche Länder grenzen direkt an Rohan und wer regiert Rohan zu Zeiten des Ringkrieges?",
-          "answer": "Gondor (Süden), Isengard/Fangorn (Westen), Dunland (Nordwesten), Nebelgebirge (Norden); König Théoden regiert Rohan"
+          "id": "geraeusche-60",
+          "points": 60,
+          "question": "Geräusch erraten – schwere Schwierigkeit"
         }
       ]
     }
