@@ -1,38 +1,195 @@
-.App {
-  text-align: center;
+/* ===== Global Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: #0a0a0f;
+  color: #f0e6c8;
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
   min-height: 100vh;
+}
+
+/* ===== App Shell ===== */
+.app {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ===== Header ===== */
+.app-header {
+  background: linear-gradient(90deg, #0d1a00 0%, #1a0a00 50%, #0d1a00 100%);
+  border-bottom: 2px solid #8b6914;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+}
+
+.app-title-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.app-title {
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  color: #d4a843;
+  text-shadow: 0 0 16px rgba(212, 168, 67, 0.6);
+  font-weight: bold;
+  letter-spacing: 0.06em;
+}
+
+.app-subtitle {
+  font-size: clamp(0.9rem, 1.8vw, 1.4rem);
+  color: #a07830;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.app-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.app-score {
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  color: #c8b87a;
+  letter-spacing: 0.04em;
+}
+
+.reset-btn {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  font-weight: bold;
+  background: linear-gradient(135deg, #2a0a00, #5a1a00);
+  color: #d4a843;
+  border: 2px solid #8b2000;
+  border-radius: 6px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+  letter-spacing: 0.04em;
+}
+
+.reset-btn:hover {
+  background: linear-gradient(135deg, #5a1a00, #8b2800);
+  transform: scale(1.04);
+}
+
+.reset-btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== Main Board Area ===== */
+.app-main {
+  flex: 1;
+  min-height: 0;          /* allow flex child to shrink below content size */
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
+}
+
+/* ===== Confirm Dialog ===== */
+.confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 2000;
+  padding: 24px;
+  animation: fadeIn 0.15s ease;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.confirm-dialog {
+  background: linear-gradient(160deg, #0d1b2e, #1a0d00);
+  border: 2px solid #8b6914;
+  border-radius: 10px;
+  padding: 40px 48px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.confirm-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  color: #d4a843;
+  margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(212, 168, 67, 0.4);
+}
+
+.confirm-text {
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  color: #c8b87a;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.confirm-btn {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  font-weight: bold;
+  padding: 10px 26px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+  letter-spacing: 0.04em;
+}
+
+.confirm-btn:hover  { transform: scale(1.04); }
+.confirm-btn:active { transform: scale(0.97); }
+
+.btn-confirm-yes {
+  background: linear-gradient(135deg, #5a0000, #8b0000);
+  color: #f0c0c0;
+  border-color: #b00000;
+}
+
+.btn-confirm-yes:hover {
+  background: linear-gradient(135deg, #8b0000, #b80000);
+}
+
+.btn-confirm-no {
+  background: linear-gradient(135deg, #0d2b5e, #1a4a9e);
+  color: #d4a843;
+  border-color: #8b6914;
+}
+
+.btn-confirm-no:hover {
+  background: linear-gradient(135deg, #1a4a9e, #2a6adf);
 }

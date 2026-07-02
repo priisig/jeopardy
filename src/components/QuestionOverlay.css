@@ -1,0 +1,146 @@
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  box-sizing: border-box;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.overlay-card {
+  background: linear-gradient(160deg, #0d1b2e 0%, #152744 60%, #1a0d00 100%);
+  border: 3px solid #d4a843;
+  border-radius: 12px;
+  padding: clamp(24px, 5vw, 56px);
+  max-width: 860px;
+  width: 100%;
+  box-shadow: 0 0 60px rgba(212, 168, 67, 0.25), 0 20px 60px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.overlay-points {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: #d4a843;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 12px rgba(212, 168, 67, 0.6);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+  padding-bottom: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.overlay-question {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(1.3rem, 3.5vw, 2.4rem);
+  color: #f0e6c8;
+  text-align: center;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.overlay-answer {
+  background: rgba(212, 168, 67, 0.08);
+  border: 1px solid rgba(212, 168, 67, 0.35);
+  border-radius: 8px;
+  padding: 20px 28px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.overlay-answer-label {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  color: #d4a843;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.overlay-answer-text {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+  color: #f0e6c8;
+  line-height: 1.5;
+}
+
+.overlay-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.overlay-btn {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  letter-spacing: 0.04em;
+}
+
+.overlay-btn:hover {
+  transform: scale(1.04);
+}
+
+.overlay-btn:active {
+  transform: scale(0.97);
+}
+
+.btn-reveal {
+  background: linear-gradient(135deg, #0d2b5e, #1a4a9e);
+  color: #d4a843;
+  border-color: #8b6914;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+.btn-reveal:hover {
+  background: linear-gradient(135deg, #1a4a9e, #2a6adf);
+}
+
+.btn-done {
+  background: linear-gradient(135deg, #1a3a10, #2e6b1a);
+  color: #a8e07a;
+  border-color: #4a8a2a;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+.btn-done:hover {
+  background: linear-gradient(135deg, #2e6b1a, #3e9a22);
+}
+
+.btn-close {
+  background: linear-gradient(135deg, #2a0a00, #5a1a00);
+  color: #d4a843;
+  border-color: #8b2000;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+.btn-close:hover {
+  background: linear-gradient(135deg, #5a1a00, #8b2800);
+}
+
