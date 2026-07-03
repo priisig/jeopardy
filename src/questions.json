@@ -100,25 +100,25 @@
           "id": "geraeusche-20",
           "points": 20,
           "question": "Geräusch erraten – leichte Schwierigkeit",
-          "youtubeUrl": "https://www.youtube.com/watch?v=7lwJOxN_gXc",
-          "startTime": 0,
-          "endTime": 5
+          "youtubeUrl": "https://www.youtube.com/watch?v=Mfws7_Ezsiw",
+          "startTime": 26,
+          "endTime": 33
         },
         {
           "id": "geraeusche-40",
           "points": 40,
           "question": "Geräusch erraten – mittlere Schwierigkeit",
-          "youtubeUrl": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_2",
-          "startTime": 30,
-          "endTime": 45
+          "youtubeUrl": "https://www.youtube.com/watch?v=b7MCVm4XISc",
+          "startTime": 26,
+          "endTime": 30
         },
         {
           "id": "geraeusche-60",
           "points": 60,
           "question": "Geräusch erraten – schwere Schwierigkeit",
-          "youtubeUrl": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_3",
-          "startTime": 10,
-          "endTime": 25
+          "youtubeUrl": "https://www.youtube.com/watch?v=DgNrvnY1mo0",
+          "startTime": 37,
+          "endTime": 43
         }
       ]
     }

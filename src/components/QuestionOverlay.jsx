@@ -10,7 +10,8 @@ function extractYouTubeId(url) {
 
 // step: 'question' | 'teamPicker'
 function QuestionOverlay({ question, teams, onClose, onMarkCompleted, isCompleted }) {
-  const [answerVisible, setAnswerVisible] = useState(false);
+  const [answerVisible,  setAnswerVisible]  = useState(false);
+  const [videoRevealed,  setVideoRevealed]  = useState(false);
   const [step, setStep] = useState('question');
 
   const hasAnswer  = question.answer != null && question.answer !== '';
@@ -70,12 +71,21 @@ function QuestionOverlay({ question, teams, onClose, onMarkCompleted, isComplete
                   videoId={videoId}
                   startTime={question.startTime}
                   endTime={question.endTime}
+                  videoRevealed={videoRevealed}
                 />
-                {(question.startTime != null || question.endTime != null) && (
+                {(question.startTime != null || question.endTime != null) && !videoRevealed && (
                   <div className="youtube-timecode">
                     {question.startTime != null && <span>⏱ Start: {question.startTime}s</span>}
                     {question.endTime   != null && <span> – Ende: {question.endTime}s</span>}
                   </div>
+                )}
+                {!videoRevealed && (
+                  <button
+                    className="overlay-btn btn-reveal-video"
+                    onClick={() => setVideoRevealed(true)}
+                  >
+                    🎬 Video enthüllen
+                  </button>
                 )}
               </div>
             )}

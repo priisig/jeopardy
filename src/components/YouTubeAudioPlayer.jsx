@@ -25,11 +25,19 @@ function loadYouTubeAPI() {
   });
 }
 
-function YouTubeAudioPlayer({ videoId, startTime, endTime }) {
+function YouTubeAudioPlayer({ videoId, startTime, endTime, videoRevealed }) {
   const playerRef    = useRef(null);
   const containerRef = useRef(null);
   const [isReady,   setIsReady]   = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  // Stop audio player when the video is revealed
+  useEffect(() => {
+    if (videoRevealed) {
+      try { playerRef.current?.stopVideo(); } catch (_) {}
+      setIsPlaying(false);
+    }
+  }, [videoRevealed]);
 
   useEffect(() => {
     let player;
@@ -88,6 +96,19 @@ function YouTubeAudioPlayer({ videoId, startTime, endTime }) {
     playerRef.current?.stopVideo();
   }
 
+  // Build the video embed URL for the revealed player
+  const videoEmbedSrc = (() => {
+    const params = new URLSearchParams({
+      autoplay: '0',
+      controls: '1',
+      rel: '0',
+      modestbranding: '1',
+    });
+    if (startTime != null) params.set('start', startTime);
+    if (endTime   != null) params.set('end',   endTime);
+    return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+  })();
+
   return (
     <div className="youtube-audio-player">
       {/* 1×1 invisible player — purely for audio */}
@@ -96,20 +117,36 @@ function YouTubeAudioPlayer({ videoId, startTime, endTime }) {
         style={{ width: 1, height: 1, position: 'absolute', opacity: 0, pointerEvents: 'none' }}
       />
 
-      {!isReady ? (
-        <div className="youtube-loading">⏳ Lade Audio…</div>
-      ) : !isPlaying ? (
-        <button className="overlay-btn btn-play-audio" onClick={handlePlay}>
-          🔊 Geräusch abspielen
-        </button>
-      ) : (
-        <div className="youtube-playing-ui">
-          <div className="youtube-playing-indicator">
-            <span className="sound-bar" /><span className="sound-bar" /><span className="sound-bar" />
-          </div>
-          <button className="overlay-btn btn-stop-audio" onClick={handleStop}>
-            ⏹ Stoppen
+      {/* Audio controls — hidden once video is revealed */}
+      {!videoRevealed && (
+        !isReady ? (
+          <div className="youtube-loading">⏳ Lade Audio…</div>
+        ) : !isPlaying ? (
+          <button className="overlay-btn btn-play-audio" onClick={handlePlay}>
+            🔊 Geräusch abspielen
           </button>
+        ) : (
+          <div className="youtube-playing-ui">
+            <div className="youtube-playing-indicator">
+              <span className="sound-bar" /><span className="sound-bar" /><span className="sound-bar" />
+            </div>
+            <button className="overlay-btn btn-stop-audio" onClick={handleStop}>
+              ⏹ Stoppen
+            </button>
+          </div>
+        )
+      )}
+
+      {/* Full video embed — shown after reveal */}
+      {videoRevealed && (
+        <div className="youtube-video-wrapper">
+          <iframe
+            className="youtube-video-iframe"
+            src={videoEmbedSrc}
+            title="YouTube video"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       )}
     </div>
